@@ -1,0 +1,1 @@
+angular      .module("jeviteca")      .service('albumsProvider', ['$http', 'settingsValue', function($http, settingsValue) {            this.readDataFromJSONFile = function( filename ) {                  return $http.get(settingsValue.dataFolder + '/' + settingsValue.albumsFile, {                      cache: false                  });            };        }]);

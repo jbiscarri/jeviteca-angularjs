@@ -1,0 +1,13 @@
+<tr>
+    <!-- Una fila -->
+    <td class="thumbnail col-xs-1 col-md-1">
+      <img ng-src="resources/img/{{ ::model.image }}" alt="{{ ::model.title }}">
+    </td>
+    <td>
+        <!-- al poner ng delante del atributo no se ve afectado en el ciclo de vida del DOM y Angular sabe como actuar -->
+        {{ ::model.title}}
+        ({{ ::model.band.name}})
+    </td>
+    <td>{{ ::model.genre.name }}</td>
+    <td><span class="badge">{{ ::model.year }}</span></td>
+</tr>

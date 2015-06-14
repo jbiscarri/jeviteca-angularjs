@@ -1,0 +1,10 @@
+<h3>Álbums</h3>
+<table class="table table-striped">
+    <tbody>
+        <tr album-row
+            ng-repeat="album in albums | orderBy:['year', 'title']"
+            model="album">
+        </tr>
+    </tbody>
+
+</table>

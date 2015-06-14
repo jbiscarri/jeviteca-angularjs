@@ -1,0 +1,10 @@
+<h3>Bandas</h3>
+<table class="table table-striped">
+    <tbody>
+        <tr band-row
+            ng-repeat="band in bands | orderBy:['name']"
+            model="band">
+        </tr>
+    </tbody>
+
+</table>

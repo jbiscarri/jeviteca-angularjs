@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="jeviteca">
+<head>
+    <meta charset="UTF-8">
+    <title>JEVITECA JOAN BISCARRI</title>
+    <link rel="stylesheet" href="styles/css/bootstrap.min.css">
+    <script src="vendor/angular.min.js"></script>
+    <script src="vendor/angular-route.min.js"></script>
+    <script src="vendor/angular-route-segment.min.js"></script>
+    <script src="vendor/angular-locale_es-es.js"></script>
+    <!-- App -->
+    <script src="scripts/app.js"></script>
+    <!-- controllers -->
+    <script src="scripts/controllers/navigationController.js"></script>
+    <script src="scripts/controllers/albumsController.js"></script>
+    <script src="scripts/controllers/bandsController.js"></script>
+    <!-- Filters -->
+    <script src="scripts/filters/instrumentsFilter.js"></script>
+    <!-- Values -->
+    <script src="scripts/values/settings.js"></script>
+    <!-- Services -->
+    <script src="scripts/services/readerService.js"></script>
+    <script src="scripts/services/albumsProvider.js"></script>
+    <script src="scripts/services/bandsProvider.js"></script>
+    <!-- Directives -->
+    <script src="scripts/directives/albumRow.js"></script>
+    <script src="scripts/directives/bandRow.js"></script>
+
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JEVITECA</h1>
+            <h2>Descripción de la Web</h2>
+        </header>
+        <nav ng-controller="navigationController">
+            <ul class="nav nav-tabs">
+                <li role="presentation" ng-class="{ 'active' : albumsRoute() }">
+                    <a href="#/albums">Álbumes</a>
+                </li>
+                <li role="presentation" ng-class="{ 'active' : bandsRoute() }">
+                    <a href="#/bands">Bandas</a>
+                </li>
+                <li role="presentation" ng-class="{ 'active' : genresRoute() }">
+                    <a href="#/genres">Géneros</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Si hay vistas anidadas van a segment 1 (pej en el app.j segment: peliculas.detalles) -->
+        <section app-view-segment="0">
+
+        </section>
+    </div>
+</body>
+</html>

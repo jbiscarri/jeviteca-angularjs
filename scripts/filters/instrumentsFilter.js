@@ -1,0 +1,1 @@
+angular    .module("jeviteca")    .filter("instrumentsFilter", function() {        return function(collection) {            return collection.join(', ')        };    });
