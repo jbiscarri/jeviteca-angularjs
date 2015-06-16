@@ -3,9 +3,7 @@
     <td>
         {{ ::model.name}}
         <br /><br />
-        <button type="button" class="btn btn-lg"
-        ng-class="{ 'btn-danger' : isStarred('genres', model.name) }"
-        ng-click="updateStarredValue('genres', model.name)">
+        <button type="button" class="btn btn-lg" ng-class="{ 'btn-danger' : isStarred('genres', model.name) }" ng-click="updateStarredValue('genres', model.name)">
             <span class="glyphicon glyphicon-star" aria-hidden="false"></span> Favorite
         </button>
     </td>
