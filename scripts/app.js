@@ -3,7 +3,7 @@ angular.module('jeviteca').config(
     ['$routeSegmentProvider', '$routeProvider', function( $routeSegmentProvider, $routeProvider ) {
         $routeSegmentProvider.when('/albums', 'albums');
         $routeSegmentProvider.when('/bands', 'bands')
-        //$routeSegmentProvider.when('/genres', 'genres');
+        $routeSegmentProvider.when('/genres', 'genres');
 
         $routeSegmentProvider.segment('albums', {
             controller: 'albumsController',
@@ -33,6 +33,16 @@ angular.module('jeviteca').config(
             resolve:{ //resuleve lo que sea antes de ir a la vista y lo inyecta como dependencia
                 Bands: ['bandsProvider', function(bandsProvider) {
                     return bandsProvider.readDataFromJSONFile();
+                }]
+            }
+        });
+
+        $routeSegmentProvider.segment('genres', {
+            controller: 'genresController',
+            templateUrl: 'views/genres.html',
+            resolve:{ //resuleve lo que sea antes de ir a la vista y lo inyecta como dependencia
+                Genres: ['genresProvider', function(genresProvider) {
+                    return genresProvider.readDataFromJSONFile();
                 }]
             }
         });

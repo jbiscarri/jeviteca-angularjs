@@ -1,5 +1,5 @@
 angular
     .module('jeviteca')
-    .controller('albumsController', ['$scope', 'Albums', function($scope, Albums){
-        $scope.albums = Albums.data;
+    .controller('albumsController', ['$scope', 'Albums','starredService', function($scope, Albums, starredService){
+        $scope.albums = Albums.data;        
     }]);

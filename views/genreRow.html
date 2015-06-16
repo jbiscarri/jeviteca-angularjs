@@ -1,0 +1,20 @@
+<tr>
+    <!-- Una fila -->
+    <td>
+        {{ ::model.name}}
+        <br /><br />
+        <button type="button" class="btn btn-lg"
+        ng-class="{ 'btn-danger' : isStarred('genres', model.name) }"
+        ng-click="updateStarredValue('genres', model.name)">
+            <span class="glyphicon glyphicon-star" aria-hidden="false"></span> Favorite
+        </button>
+    </td>
+    <td>
+        {{ ::model.origin}}
+    </td>
+    <td>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="album in model.albums"><b>{{ ::album.title }}</b> {{::album.band.name  | parenthesisFilter }} <span class="label label-info">{{ ::album.year }}</span> </li>
+        </ul>
+    </td>
+</tr>

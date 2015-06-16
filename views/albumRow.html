@@ -1,13 +1,28 @@
-<tr>
-    <!-- Una fila -->
+<!-- <tr>
     <td class="thumbnail col-xs-1 col-md-1">
       <img ng-src="resources/img/{{ ::model.image }}" alt="{{ ::model.title }}">
     </td>
     <td>
-        <!-- al poner ng delante del atributo no se ve afectado en el ciclo de vida del DOM y Angular sabe como actuar -->
         {{ ::model.title}}
         ({{ ::model.band.name}})
     </td>
-    <td>{{ ::model.genre.name }}</td>
+    <td>{{ ::model.genre.name | uppercaseFilter }}</td>
     <td><span class="badge">{{ ::model.year }}</span></td>
-</tr>
+</tr> -->
+<div class="thumbnail">
+    <img ng-src="resources/img/{{ ::model.image }}" alt="{{ ::model.title }}">
+    <div class="caption">
+        <p><b>{{ ::model.title}}</b></p>
+        <p><span ng-hide="model.band.name | isEmptyFilter">{{ ::model.band.name | parenthesisFilter }}</span></p>
+        <!-- <p>{{ ::model.band.name | parenthesisFilter }}</p> -->
+        <p>{{ ::model.genre.name | uppercaseFilter }}</p>
+        <p>
+            <span class="badge">{{ ::model.year }}</span>
+            <button type="button" class="btn btn-lg"
+            ng-class="{ 'btn-danger' : isStarred('albums', model.id) }"
+            ng-click="updateStarredValue('albums', model.id)">
+                <span class="glyphicon glyphicon-star" aria-hidden="false"></span> Favorite
+            </button>
+        </p>
+    </div>
+</div>

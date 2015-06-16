@@ -1,0 +1,10 @@
+<h3>Géneros</h3>
+<table class="table table-striped">
+    <tbody>
+        <tr genre-row
+            ng-repeat="genre in genres | orderBy:['name']"
+            model="genre">
+        </tr>
+    </tbody>
+
+</table>
