@@ -4,6 +4,8 @@ angular.module('jeviteca').config(
         $routeSegmentProvider.when('/albums', 'albums');
         $routeSegmentProvider.when('/bands', 'bands')
         $routeSegmentProvider.when('/genres', 'genres');
+        $routeSegmentProvider.when('/album/:id/detail', 'album_detail');
+
 
         $routeSegmentProvider.segment('albums', {
             controller: 'albumsController',
@@ -46,6 +48,17 @@ angular.module('jeviteca').config(
                 }]
             }
         });
+
+        $routeSegmentProvider.segment('album_detail', {
+           controller: 'albumDetailController',
+           templateUrl: 'views/albumDetail.html',
+           resolve: {
+               Albums: ['albumsProvider', function(albumsProvider){
+                   return albumsProvider.readDataFromJSONFile();
+
+               }]
+           }
+       });
 
         $routeProvider.otherwise({
             redirectTo: '/albums'

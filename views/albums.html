@@ -1,8 +1,9 @@
-<h3>Álbums</h3>
-
+<h3>Álbums {{ albumFilter }}</h3>
+<div>
+	<span>Filtro: </span> <input type="text" ng-model="albumFilter" ng-model-options="{ debounce: 500 }" />
+</div>
 <div class="row">
     <div class="col-sm-4 col-md-3" album-row ng-repeat="album in albums | orderBy:['year', 'title']"
     model="album">
-
     </div>
 </div>

@@ -1,14 +1,24 @@
 <div class="thumbnail">
     <img ng-src="resources/img/{{ ::model.image }}" alt="{{ ::model.title }}">
-    <div class="caption">
-        <p><b><a ng-href="#/album/{{ ::model.id }}/detail">{{ ::model.title}}</a></b></p>
+    <div class="caption text-center ">
+        <p><b>{{ ::model.title}}</b></p>
         <p><span ng-hide="model.band.name | isEmptyFilter">{{ ::model.band.name | parenthesisFilter }}</span></p>
         <p>{{ ::model.genre.name | uppercaseFilter }}</p>
+        <p><a ng-href="{{ ::wikiLink }}">Más info en Wikipedia!</p>
         <p>
             <span class="badge">{{ ::model.year }}</span>
             <button type="button" class="btn btn-lg" ng-class="{ 'btn-danger' : isStarred('albums', model.id) }" ng-click="updateStarredValue('albums', model.id)">
                 <span class="glyphicon glyphicon-star" aria-hidden="false"></span> Favorite
             </button>
+        </p>
+        <p>
+            <table class="table table-striped">
+                <tbody>
+                    <tr ng-repeat="track in model.tracklist">
+                        <td>{{ ::track }} - <a ng-href="{{ ::youtubeLink(model.band.name, track) }}">Youtube</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </p>
     </div>
 </div>
